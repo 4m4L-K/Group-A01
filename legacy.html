@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy — MESSI: The Eternal King</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── PAGE HERO ─────────────────────────────────── */
+.page-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 7% 6rem;
+  position: relative;
+  background: linear-gradient(180deg, rgba(201,168,76,0.04) 0%, transparent 100%);
+  border-bottom: 1px solid var(--gold-border);
+}
+.page-hero::before {
+  content: 'III';
+  position: absolute;
+  bottom: -0.15em; left: 5%;
+  font-family: var(--ff-heading);
+  font-size: 22vw;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,168,76,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 2; }
+.page-eyebrow {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.page-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+.page-title span {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-title .outline {
+  background: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(245,239,223,0.2);
+}
+
+/* ── QUOTE HERO ─────────────────────────────────── */
+.legacy-quote-section {
+  background: linear-gradient(135deg, var(--panel) 0%, var(--panel-alt) 100%);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 8rem 7%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.legacy-quote-section::before {
+  content: '"';
+  position: absolute;
+  top: -0.3em; left: 4%;
+  font-family: var(--ff-display);
+  font-size: 20rem;
+  color: rgba(201,168,76,0.03);
+  line-height: 1;
+  pointer-events: none;
+  font-style: italic;
+}
+.legacy-quote-section blockquote {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--ivory);
+  line-height: 1.5;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+}
+.legacy-quote-section blockquote em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.legacy-quote-section cite {
+  font-family: var(--ff-heading);
+  font-style: normal;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--ivory-dim);
+  text-transform: uppercase;
+}
+
+/* ── RECORDS TABLE ──────────────────────────────── */
+.records-section { background: var(--obsidian); }
+.records-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  overflow: hidden;
+}
+.records-header-bar {
+  padding: 1.5rem 2.5rem;
+  background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+  border-bottom: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.records-header-bar::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--gold);
+  animation: glow-pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px var(--gold); }
+  50%       { box-shadow: 0 0 24px var(--gold), 0 0 8px rgba(201,168,76,0.5); }
+}
+.records-header-bar span {
+  font-family: var(--ff-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.record-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.5fr;
+  padding: 1.6rem 2.5rem;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+  align-items: center;
+  transition: background 0.3s;
+  gap: 2rem;
+}
+.record-row:last-child { border-bottom: none; }
+.record-row:hover { background: rgba(201,168,76,0.03); }
+.record-name {
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ivory);
+  letter-spacing: 0.02em;
+}
+.record-val {
+  font-family: var(--ff-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  filter: drop-shadow(0 0 8px rgba(201,168,76,0.3));
+}
+.record-prev {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--ivory-dim);
+  text-align: right;
+}
+
+/* ── IMPACT PILLARS ─────────────────────────────── */
+.impact-section {
+  background: linear-gradient(180deg, var(--obsidian) 0%, var(--deep) 100%);
+  border-top: 1px solid var(--gold-border);
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  margin-top: 1rem;
+}
+.impact-card {
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  border-top: 2px solid var(--gold);
+  padding: 3rem 2.5rem;
+  transition: var(--transition);
+}
+.impact-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,76,0.5);
+  border-top-color: var(--gold-bright);
+  box-shadow: var(--shadow-gold);
+}
+.impact-icon {
+  font-family: var(--ff-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(201,168,76,0.4));
+}
+.impact-title {
+  font-family: var(--ff-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--ivory);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.impact-desc {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ivory-dim);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .record-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem;
+  }
+  .record-name { grid-column: 1 / -1; }
+  .record-prev { text-align: left; grid-column: 1 / -1; }
+}
+</style>
+</head>
+<body>
+
+<div id="lux-cursor"></div>
+<div id="lux-cursor-ring"></div>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand">LM <em>10</em></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="journey.html">Journey</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="legacy.html" class="active">Legacy</a></li>
+    <li><a href="fanzone.html">Fan Zone</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-img">
+    <img src="assets/images/messi-zoom-out.JPG" alt="" aria-hidden="true">
+  </div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow">03 · Legacy</span>
+    <h1 class="page-title">
+      <span class="outline">The</span>
+      <span>Legacy</span>
+    </h1>
+  </div>
+</div>
+
+<!-- Quote -->
+<div class="legacy-quote-section cinematic-bg reveal">
+  <div class="bg-img">
+    <img src="assets/images/messi-legacy-bg.jpg" alt="" aria-hidden="true" loading="lazy">
+  </div>
+  <blockquote>
+    "I always try to do my best, to be the <em>best I can be</em>."
+  </blockquote>
+  <cite>— Lionel Andrés Messi · Intercepted Signal</cite>
+</div>
+
+<!-- Records -->
+<section class="records-section">
+  <div class="section-header reveal">
+    <span class="section-number">Authenticated Records</span>
+    <h2 class="section-title">World Records<br>Archive<div class="fill-text">World Records<br>Archive</div></h2>
+    <div class="ornament-divider"><div class="orn-line"></div><div class="orn-diamond"></div><div class="orn-line"></div></div>
+  </div>
+
+  <div class="records-panel reveal">
+    <div class="records-header-bar">
+      <span>World Record Archive · Authenticated · Current</span>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Most Ballon d'Or Awards</div>
+      <div class="record-val">8</div>
+      <div class="record-prev">Previous: Ronaldo — 5</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Most La Liga Goals in a Single Season</div>
+      <div class="record-val">50</div>
+      <div class="record-prev">Season 2011–12 · Unmatched</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Goals in a Single Calendar Year</div>
+      <div class="record-val">91</div>
+      <div class="record-prev">Previous: Gerd Müller — 85 (1972)</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Most La Liga Titles (Player)</div>
+      <div class="record-val">10</div>
+      <div class="record-prev">Shared · Highest in Modern Era</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Argentina All-Time Top Scorer</div>
+      <div class="record-val">109+</div>
+      <div class="record-prev">Previous: Gabriel Batistuta — 54</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Most Champions League Hat-Tricks</div>
+      <div class="record-val">8</div>
+      <div class="record-prev">All-Time Record · Unchallenged</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">Most Free-Kick Goals (La Liga)</div>
+      <div class="record-val">40+</div>
+      <div class="record-prev">Previous: Roberto Carlos</div>
+    </div>
+    <div class="record-row">
+      <div class="record-name">FIFA World Player of the Year</div>
+      <div class="record-val">7×</div>
+      <div class="record-prev">Record Holder</div>
+    </div>
+  </div>
+</section>
+
+<!-- Cultural Impact -->
+<section class="impact-section">
+  <div class="section-header reveal">
+    <span class="section-number">Beyond the Game</span>
+    <h2 class="section-title">Cultural<br>Impact<div class="fill-text">Cultural<br>Impact</div></h2>
+    <div class="ornament-divider"><div class="orn-line"></div><div class="orn-diamond"></div><div class="orn-line"></div></div>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-card reveal">
+      <span class="impact-icon">♛</span>
+      <div class="impact-title">The GOAT Debate</div>
+      <p class="impact-desc">Messi ended the greatest debate in sports. Eight Ballon d'Or awards, a World Cup, and statistical dominance across two decades sealed an argument that may never be revisited.</p>
+    </div>
+    <div class="impact-card reveal">
+      <span class="impact-icon">◆</span>
+      <div class="impact-title">Foundation & Charity</div>
+      <p class="impact-desc">The Leo Messi Foundation has invested millions in children's health, education, and sport access across Latin America — building a legacy that transcends any football pitch.</p>
+    </div>
+    <div class="impact-card reveal">
+      <span class="impact-icon">✦</span>
+      <div class="impact-title">Inspiration to Millions</div>
+      <p class="impact-desc">From Rosario to Riyadh, from Barcelona to Buenos Aires — Messi's story of resilience, humility, and relentless pursuit of excellence has inspired an entire generation of footballers.</p>
+    </div>
+    <div class="impact-card reveal">
+      <span class="impact-icon">◉</span>
+      <div class="impact-title">Revolutionising MLS</div>
+      <p class="impact-desc">Inter Miami's overnight transformation into a global sporting phenomenon proved Messi's power extends beyond trophies. American football was changed forever with a single signature.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">LM<span style="font-size:1.8em;color:var(--ivory-dim);font-family:var(--ff-display);font-style:italic;">10</span></div>
+      <p class="footer-desc">A luxury tribute to the greatest footballer to ever grace the beautiful game. Built by fans, for fans.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Archive</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="legacy.html">Legacy</a></li>
+        <li><a href="fanzone.html">Fan Zone</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Highlights</h4>
+      <ul>
+        <li><a href="career.html">Statistics</a></li>
+        <li><a href="legacy.html">World Records</a></li>
+        <li><a href="fanzone.html">Trivia Quiz</a></li>
+        <li><a href="journey.html">Timeline</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2024–2026 Messi Luxury Archive · All Rights Reserved</span>
+    <span class="footer-sig">GOAT Status: Confirmed · Eternal</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

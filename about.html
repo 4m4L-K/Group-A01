@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — MESSI: The Eternal King</title>
+<meta name="description" content="Meet the creators behind the Messi Luxury Archive — undergraduate students at Amrita Vishwa Vidyapeetham.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── PAGE HERO ───────────────────────────────────── */
+.page-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 7% 6rem;
+  position: relative;
+  background: linear-gradient(180deg, rgba(201,168,76,0.04) 0%, transparent 100%);
+  border-bottom: 1px solid var(--gold-border);
+}
+.page-hero::before {
+  content: 'A';
+  position: absolute;
+  bottom: -0.15em; left: 5%;
+  font-family: var(--ff-heading);
+  font-size: 28vw;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,168,76,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 2; }
+.page-eyebrow {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.page-title {
+  font-family: var(--ff-heading);
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+.page-title span {
+  display: block;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-title .outline {
+  background: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(245,239,223,0.2);
+}
+
+/* ── ABOUT SECTION ───────────────────────────────── */
+.about-section {
+  background: var(--obsidian);
+  padding: 100px 7%;
+}
+
+.about-intro {
+  max-width: 800px;
+  margin: 0 auto 6rem;
+  text-align: center;
+}
+.about-intro-label {
+  font-family: var(--ff-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2rem;
+}
+.about-intro p {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  color: var(--ivory);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.about-intro p:last-of-type { margin-bottom: 0; }
+.about-intro p em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 4rem auto;
+  max-width: 400px;
+}
+.ornament-divider .h-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+  opacity: 0.4;
+}
+.ornament-divider .h-line:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+.ornament-divider .h-diamond {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px var(--gold);
+}
+
+/* ── TEAM CARDS ──────────────────────────────────── */
+.team-section {
+  margin-bottom: 6rem;
+}
+.section-label {
+  font-family: var(--ff-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--ivory-dim);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: block;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.team-card {
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  border-top: 2px solid var(--gold);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.team-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.45s;
+}
+.team-card:hover { transform: translateY(-6px); border-top-color: var(--gold-bright); }
+.team-card:hover::after { opacity: 1; }
+
+.team-card-num {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.team-card-name {
+  font-family: var(--ff-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ivory);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  position: relative; z-index: 1;
+}
+.team-card-role {
+  font-family: var(--ff-body);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+  position: relative; z-index: 1;
+}
+
+/* ── INFO PANELS ─────────────────────────────────── */
+.info-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.info-panel {
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.info-panel::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright));
+  transform: scaleX(0);
+  transition: transform 0.45s ease;
+}
+.info-panel:hover::before { transform: scaleX(1); }
+
+.panel-heading {
+  font-family: var(--ff-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.panel-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-border);
+}
+.panel-text {
+  font-family: var(--ff-body);
+  font-size: 0.92rem;
+  color: var(--ivory-dim);
+  line-height: 1.85;
+}
+.panel-text + .panel-text { margin-top: 1rem; }
+
+/* ── INSTITUTION BADGE ───────────────────────────── */
+.institution-band {
+  background: linear-gradient(135deg, var(--panel) 0%, var(--panel-alt) 100%);
+  border-top: 1px solid var(--gold-border);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 5rem 7%;
+  text-align: center;
+  margin-top: 6rem;
+}
+.institution-eyebrow {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--ivory-dim);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.institution-name {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--ivory);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.institution-name em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.institution-degree {
+  font-family: var(--ff-body);
+  font-size: 0.85rem;
+  color: var(--ivory-dim);
+  letter-spacing: 0.15em;
+}
+
+/* ── DESIGN INSPIRATION ──────────────────────────── */
+.inspiration-section {
+  background: var(--obsidian);
+  padding: 6rem 7%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+.inspiration-item {
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  padding: 2.5rem;
+  transition: var(--transition);
+}
+.inspiration-item:hover { border-color: rgba(201,168,76,0.5); }
+.inspiration-label {
+  font-family: var(--ff-heading);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--ivory-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.inspiration-title {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: 1fr; }
+  .info-panels { grid-template-columns: 1fr; }
+  .inspiration-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .about-section { padding: 60px 5%; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="lux-cursor"></div>
+<div id="lux-cursor-ring"></div>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="pre-crest">MESSI</div>
+  <div class="pre-ornament">
+    <div class="pre-ornament-line"></div>
+    <div class="pre-ornament-diamond"></div>
+    <div class="pre-ornament-line" style="transform:scaleX(-1)"></div>
+  </div>
+  <div class="pre-tagline">The Eternal King · 1987 — Forever</div>
+  <div class="pre-bar-track">
+    <div class="pre-bar-fill" id="pre-bar"></div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-brand">LM <em>10</em></a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="journey.html">Journey</a></li>
+    <li><a href="career.html">Career</a></li>
+    <li><a href="legacy.html">Legacy</a></li>
+    <li><a href="fanzone.html">Fan Zone</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+    <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</nav>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-img">
+    <img src="assets/images/amrita.jpg" alt="" aria-hidden="true">
+  </div>
+  <div class="page-hero-inner">
+    <span class="page-eyebrow">The Creators · Amrita Vishwa Vidyapeetham</span>
+    <h1 class="page-title">
+      <span class="outline">ABOUT</span>
+      <span>US</span>
+    </h1>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+
+  <!-- Intro -->
+  <div class="about-intro reveal">
+    <span class="about-intro-label">Our Story</span>
+    <p>
+      We are <em>undergraduate students</em> at Amrita Vishwa Vidyapeetham, currently pursuing a Bachelor of Technology in Artificial Intelligence and Engineering.
+    </p>
+    <p>
+      This website was developed as part of our <em>end-semester academic project</em>, with the objective of creating an engaging and modern biography platform dedicated to the greatest footballer of all time.
+    </p>
+  </div>
+
+  <!-- Team -->
+  <div class="team-section reveal">
+    <span class="section-label">The Creators</span>
+    <div class="team-grid">
+      <div class="team-card">
+        <span class="team-card-num">01 / Creator</span>
+        <div class="team-card-name">Ithihas<br>Suresh</div>
+        <div class="team-card-role">B.Tech AIE</div>
+      </div>
+      <div class="team-card">
+        <span class="team-card-num">02 / Creator</span>
+        <div class="team-card-name">Amal<br>Sankar K</div>
+        <div class="team-card-role">B.Tech AIE</div>
+      </div>
+      <div class="team-card">
+        <span class="team-card-num">03 / Creator</span>
+        <div class="team-card-name">Deepak<br>Prathap</div>
+        <div class="team-card-role">B.Tech AIE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament-divider reveal">
+    <div class="h-line"></div>
+    <div class="h-diamond"></div>
+    <div class="h-line"></div>
+  </div>
+
+  <!-- Info Panels -->
+  <div class="info-panels reveal">
+    <div class="info-panel">
+      <div class="panel-heading">About the Website</div>
+      <p class="panel-text">
+        This project is a biography website dedicated to Lionel Messi — one of the most celebrated football players in the world. The website aims to provide a more immersive and interactive alternative to traditional biography formats such as written articles or standard informational webpages.
+      </p>
+    </div>
+    <div class="info-panel">
+      <div class="panel-heading">Our Vision</div>
+      <p class="panel-text">
+        Designed with a cinematic and user-focused approach, the website combines visual storytelling, animations, and interactive elements to enhance user engagement and create a more memorable browsing experience.
+      </p>
+      <p class="panel-text">
+        The design and presentation are inspired by the modern aesthetics of the Grand Theft Auto VI promotional website and the personal website of Lando Norris.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- Institution Band -->
+<div class="institution-band reveal">
+  <span class="institution-eyebrow">Academic Institution</span>
+  <div class="institution-name"><em>Amrita</em> Vishwa Vidyapeetham</div>
+  <div class="institution-degree">Bachelor of Technology · Artificial Intelligence & Engineering</div>
+</div>
+
+
+<!-- Design Inspirations -->
+<section style="background: var(--obsidian); padding: 6rem 7%;">
+  <div style="max-width: 960px; margin: 0 auto;">
+    <span class="section-label reveal">Design Inspirations</span>
+    <div class="inspiration-grid reveal">
+      <div class="inspiration-item">
+        <span class="inspiration-label">Inspiration 01</span>
+        <div class="inspiration-title">GTA VI Promotional Website</div>
+      </div>
+      <div class="inspiration-item">
+        <span class="inspiration-label">Inspiration 02</span>
+        <div class="inspiration-title">Lando Norris Personal Website</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">LM<span style="font-size:1.8em;color:var(--ivory-dim);font-family:var(--ff-display);font-style:italic;">10</span></div>
+      <p class="footer-desc">A luxury tribute to the greatest footballer to ever grace the beautiful game. Not affiliated with Lionel Messi or his representatives. Crafted by fans, for fans.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Archive</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="journey.html">Journey</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="legacy.html">Legacy</a></li>
+        <li><a href="fanzone.html">Fan Zone</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Highlights</h4>
+      <ul>
+        <li><a href="career.html">Statistics</a></li>
+        <li><a href="legacy.html">World Records</a></li>
+        <li><a href="fanzone.html">Trivia Quiz</a></li>
+        <li><a href="journey.html">Timeline</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2024–2026 Messi Luxury Archive · All Rights Reserved</span>
+    <span class="footer-sig">GOAT Status: Confirmed · Eternal</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
